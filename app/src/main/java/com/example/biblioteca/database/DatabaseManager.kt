@@ -66,4 +66,12 @@ class DatabaseManager(context: Context) {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
         return stream.toByteArray()
     }
+
+    fun ultimoIdLivro(): Int {
+        val cursor = db.rawQuery("SELECT MAX(id) FROM livros", null)
+        cursor.moveToFirst()
+        val id = cursor.getInt(0)
+        cursor.close()
+        return id
+    }
 }
