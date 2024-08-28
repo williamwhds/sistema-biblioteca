@@ -1,3 +1,4 @@
+// app/src/main/java/com/example/biblioteca/database/DatabaseManager.kt
 package com.example.biblioteca.database
 
 import android.content.ContentValues
@@ -97,5 +98,18 @@ class DatabaseManager(context: Context) {
 
     fun removerLivro(livro: Livro) {
         db.delete("livros", "id = ?", arrayOf(livro.id.toString()))
+    }
+
+    fun editarLivro(livro: Livro) {
+        val values = ContentValues().apply {
+            put("titulo", livro.titulo)
+            put("autor", livro.autor)
+            put("isbn", livro.isbn)
+            put("ano", livro.ano)
+            put("editora", livro.editora)
+            put("edicao", livro.edicao)
+            put("imagemCapa", livro.imagemCapa)
+        }
+        db.update("livros", values, "id = ?", arrayOf(livro.id.toString()))
     }
 }

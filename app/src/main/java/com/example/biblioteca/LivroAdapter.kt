@@ -1,3 +1,4 @@
+// app/src/main/java/com/example/biblioteca/LivroAdapter.kt (modificado)
 package com.example.biblioteca
 
 import android.graphics.BitmapFactory

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageViewCapa"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="Capa do Livro"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_placeholder" />
+
+    <Button
+        android:id="@+id/buttonSelectImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selecionar Imagem" />
+
+    <EditText
+        android:id="@+id/editTextTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Título" />
+
+    <EditText
+        android:id="@+id/editTextAutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Autor" />
+
+    <EditText
+        android:id="@+id/editTextISBN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ISBN" />
+
+    <EditText
+        android:id="@+id/editTextAno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ano de Publicação (Apenas números)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextEditora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Editora" />
+
+    <EditText
+        android:id="@+id/editTextEdicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Edição (Apenas números)"
+        android:inputType="number" />
+</LinearLayout>

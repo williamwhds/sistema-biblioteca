@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonEditar.setOnClickListener {
-            // Código mudar de tela
+            val intent = Intent(this, EditarLivroActivity::class.java)
+            startActivity(intent)
         }
 
         buttonAcessar.setOnClickListener {
