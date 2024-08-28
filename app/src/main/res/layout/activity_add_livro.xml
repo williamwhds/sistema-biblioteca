@@ -45,8 +45,9 @@
                 android:id="@+id/editTextAno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ano de Publicação"
-                android:layout_margin="16dp" />
+                android:hint="Ano de Publicação (Apenas números)"
+                android:layout_margin="16dp"
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/editTextISBN"
@@ -59,8 +60,9 @@
                 android:id="@+id/editTextEdicao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Edição"
-                android:layout_margin="16dp" />
+                android:hint="Edição (Apenas números)"
+                android:layout_margin="16dp"
+                android:inputType="number" />
 
             <ImageView
                 android:id="@+id/imageViewCapa"

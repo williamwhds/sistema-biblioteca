@@ -8,6 +8,7 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -75,6 +76,18 @@ class AddLivroActivity : AppCompatActivity() {
             }
 
             db.salvarLivro(livro)
+
+            // Exibir mensagem de confirmação
+            Toast.makeText(this, "Livro adicionado com sucesso!", Toast.LENGTH_SHORT).show()
+
+            // Limpar os campos de EditText
+            editTextTitulo.text.clear()
+            editTextAutor.text.clear()
+            editTextISBN.text.clear()
+            editTextAno.text.clear()
+            editTextEditora.text.clear()
+            editTextEdicao.text.clear()
+            imageViewCapa.setImageResource(0) // Limpar a imagem da capa
         }
     }
 }
