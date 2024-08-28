@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonRemover.setOnClickListener {
-            // Código mudar de tela
+            val intent = Intent(this, RemoverLivroActivity::class.java)
+            startActivity(intent)
         }
 
         buttonEditar.setOnClickListener {

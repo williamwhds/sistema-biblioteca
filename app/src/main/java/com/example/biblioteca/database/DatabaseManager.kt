@@ -94,4 +94,8 @@ class DatabaseManager(context: Context) {
         cursor.close()
         return livros
     }
+
+    fun removerLivro(livro: Livro) {
+        db.delete("livros", "id = ?", arrayOf(livro.id.toString()))
+    }
 }

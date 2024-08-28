@@ -9,7 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.model.Livro
 
-class LivroAdapter(private val livros: List<Livro>) : RecyclerView.Adapter<LivroAdapter.LivroViewHolder>() {
+class LivroAdapter(
+    private val livros: List<Livro>,
+    private val onItemClick: (Livro) -> Unit
+) : RecyclerView.Adapter<LivroAdapter.LivroViewHolder>() {
 
     class LivroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageViewCapa: ImageView = itemView.findViewById(R.id.imageViewCapa)
@@ -27,10 +30,13 @@ class LivroAdapter(private val livros: List<Livro>) : RecyclerView.Adapter<Livro
         holder.textViewNomeLivro.text = livro.titulo
         holder.textViewAutorLivro.text = livro.autor
 
-        // Transformar ByteArray em Bitmap e definir no ImageView
         livro.imagemCapa?.let {
             val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
             holder.imageViewCapa.setImageBitmap(bitmap)
+        }
+
+        holder.itemView.setOnClickListener {
+            onItemClick(livro)
         }
     }
 
