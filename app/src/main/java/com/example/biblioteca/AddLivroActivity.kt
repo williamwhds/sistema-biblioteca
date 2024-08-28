@@ -56,7 +56,7 @@ class AddLivroActivity : AppCompatActivity() {
         }
 
         buttonSalvar.setOnClickListener {
-            // Todas são obrigatórias, excepto a imagem da capa
+            // Todas são obrigatórias, exceto a imagem da capa
             val titulo = editTextTitulo.text.toString()
             val autor = editTextAutor.text.toString()
             val isbn = editTextISBN.text.toString()

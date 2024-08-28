@@ -74,4 +74,24 @@ class DatabaseManager(context: Context) {
         cursor.close()
         return id
     }
+
+    fun getAllLivros(): List<Livro> {
+        val livros = mutableListOf<Livro>()
+        val cursor = db.query("livros", null, null, null, null, null, null)
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(cursor.getColumnIndex("id"))
+            val titulo = cursor.getString(cursor.getColumnIndex("titulo"))
+            val autor = cursor.getString(cursor.getColumnIndex("autor"))
+            val isbn = cursor.getString(cursor.getColumnIndex("isbn"))
+            val ano = cursor.getInt(cursor.getColumnIndex("ano"))
+            val editora = cursor.getString(cursor.getColumnIndex("editora"))
+            val edicao = cursor.getInt(cursor.getColumnIndex("edicao"))
+            val imagemCapa = cursor.getBlob(cursor.getColumnIndex("imagemCapa"))
+            val livro = Livro(id, titulo, autor, isbn, ano, editora, edicao)
+            livro.imagemCapa = imagemCapa
+            livros.add(livro)
+        }
+        cursor.close()
+        return livros
+    }
 }
