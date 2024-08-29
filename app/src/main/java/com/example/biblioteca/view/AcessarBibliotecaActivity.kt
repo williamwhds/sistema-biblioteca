@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.R
 import com.example.biblioteca.database.DatabaseManager
@@ -24,14 +24,30 @@ class AcessarBibliotecaActivity : AppCompatActivity() {
             insets
         }
 
-        val recyclerViewLivros: RecyclerView = findViewById(R.id.recyclerViewLivros)
-        recyclerViewLivros.layoutManager = LinearLayoutManager(this)
-
         val db = DatabaseManager(this)
         val livros = db.getAllLivros() // Método que retorna a lista de livros do banco de dados
         val adapter = LivroAdapter(livros) { livro ->
             // Se precisar de alguma ação ao clicar em um livro, adicionar aqui
         }
+
+        val recyclerViewLivros: RecyclerView = findViewById(R.id.recyclerViewLivros)
+        val spanCount = calculateSpanCount()
+        val padding = calculatePadding(spanCount)
+        recyclerViewLivros.layoutManager = GridLayoutManager(this, spanCount)
         recyclerViewLivros.adapter = adapter
+    }
+
+    private fun calculateSpanCount(): Int {
+        val displayMetrics = resources.displayMetrics
+        val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
+        val itemWidthDp = 150
+        return (screenWidthDp / itemWidthDp).toInt().coerceAtLeast(2)
+    }
+
+    private fun calculatePadding(spanCount: Int): Int {
+        val displayMetrics = resources.displayMetrics
+        val screenWidthPx = displayMetrics.widthPixels
+        val totalPaddingPx = screenWidthPx / 20 // Adjust this value as needed
+        return totalPaddingPx / (spanCount + 1)
     }
 }
