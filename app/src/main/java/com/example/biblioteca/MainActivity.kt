@@ -18,6 +18,12 @@ class MainActivity : AppCompatActivity() {
         val buttonRemover: Button = findViewById(R.id.buttonRemover)
         val buttonEditar: Button = findViewById(R.id.buttonEditar)
         val buttonAcessar: Button = findViewById(R.id.buttonAcessar)
+
+        val buttonAdicionarUsuario: Button = findViewById(R.id.buttonAdicionarUsuario)
+        val buttonRemoverUsuario: Button = findViewById(R.id.buttonRemoverUsuario)
+        val buttonEditarUsuario: Button = findViewById(R.id.buttonEditarUsuario)
+        val buttonAcessarUsuario: Button = findViewById(R.id.buttonAcessarUsuario)
+
         val buttonEmprestar: Button = findViewById(R.id.buttonEmprestar)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -44,6 +50,22 @@ class MainActivity : AppCompatActivity() {
         buttonAcessar.setOnClickListener {
             val intent = Intent(this, AcessarBibliotecaActivity::class.java)
             startActivity(intent)
+        }
+
+        buttonAdicionarUsuario.setOnClickListener {
+            // Código mudar de tela
+        }
+
+        buttonRemoverUsuario.setOnClickListener {
+            // Código mudar de tela
+        }
+
+        buttonEditarUsuario.setOnClickListener {
+            // Código mudar de tela
+        }
+
+        buttonAcessarUsuario.setOnClickListener {
+            // Código mudar de tela
         }
 
         buttonEmprestar.setOnClickListener {

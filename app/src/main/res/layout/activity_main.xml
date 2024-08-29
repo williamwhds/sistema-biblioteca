@@ -50,10 +50,38 @@
             android:text="Acessar Biblioteca" />
 
         <Button
+            android:id="@+id/buttonAdicionarUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2CA018"
+            android:text="Adicionar Usuário" />
+
+        <Button
+            android:id="@+id/buttonRemoverUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2CA018"
+            android:text="Remover Usuário" />
+
+        <Button
+            android:id="@+id/buttonEditarUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2CA018"
+            android:text="Editar Usuário" />
+
+        <Button
+            android:id="@+id/buttonAcessarUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2CA018"
+            android:text="Acessar Usuários" />
+
+        <Button
             android:id="@+id/buttonEmprestar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#2196F3"
             android:text="Emprestar Livro" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
