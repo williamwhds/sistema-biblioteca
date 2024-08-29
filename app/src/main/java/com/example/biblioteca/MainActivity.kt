@@ -12,6 +12,7 @@ import com.example.biblioteca.view.AcessarUsuarioActivity
 import com.example.biblioteca.view.AddLivroActivity
 import com.example.biblioteca.view.AddUsuarioActivity
 import com.example.biblioteca.view.EditarLivroActivity
+import com.example.biblioteca.view.EditarUsuarioActivity
 import com.example.biblioteca.view.RemoverLivroActivity
 import com.example.biblioteca.view.RemoverUsuarioActivity
 
@@ -70,7 +71,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonEditarUsuario.setOnClickListener {
-            // Código mudar de tela
+            val intent = Intent(this, EditarUsuarioActivity::class.java)
+            startActivity(intent)
         }
 
         buttonAcessarUsuario.setOnClickListener {
