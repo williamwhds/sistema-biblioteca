@@ -14,13 +14,13 @@
         android:theme="@style/Theme.Biblioteca"
         tools:targetApi="31">
         <activity
-            android:name=".EditarLivroActivity"
+            android:name=".view.EditarLivroActivity"
             android:exported="false" />
         <activity
-            android:name=".RemoverLivroActivity"
+            android:name=".view.RemoverLivroActivity"
             android:exported="false" />
         <activity
-            android:name=".AcessarBibliotecaActivity"
+            android:name=".view.AcessarBibliotecaActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -31,7 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddLivroActivity" />
+        <activity android:name=".view.AddLivroActivity" />
     </application>
 
 </manifest>

@@ -1,5 +1,5 @@
 // app/src/main/java/com/example/biblioteca/EditarLivroActivity.kt
-package com.example.biblioteca
+package com.example.biblioteca.view
 
 import android.app.Activity
 import android.content.Intent
@@ -18,6 +18,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.biblioteca.R
 import com.example.biblioteca.database.DatabaseManager
 import com.example.biblioteca.model.Livro
 import java.io.ByteArrayOutputStream

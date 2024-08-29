@@ -7,6 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.biblioteca.view.AcessarBibliotecaActivity
+import com.example.biblioteca.view.AddLivroActivity
+import com.example.biblioteca.view.EditarLivroActivity
+import com.example.biblioteca.view.RemoverLivroActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
