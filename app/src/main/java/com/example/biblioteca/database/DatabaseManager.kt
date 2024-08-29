@@ -38,6 +38,22 @@ class DatabaseManager(context: Context) {
         db.insert("usuarios", null, values)
     }
 
+    fun getAllUsuarios(): List<Usuario> {
+        val usuarios = mutableListOf<Usuario>()
+        val cursor = db.query("usuarios", null, null, null, null, null, null)
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(cursor.getColumnIndex("id"))
+            val nome = cursor.getString(cursor.getColumnIndex("nome"))
+            val email = cursor.getString(cursor.getColumnIndex("email"))
+            val telefone = cursor.getString(cursor.getColumnIndex("telefone"))
+            val endereco = cursor.getString(cursor.getColumnIndex("endereco"))
+            val usuario = Usuario(id, nome, email, telefone, endereco)
+            usuarios.add(usuario)
+        }
+        cursor.close()
+        return usuarios
+    }
+
     fun salvarEmprestimo(emprestimo: Emprestimo) {
         val values = ContentValues().apply {
             put("dataEmprestimo", emprestimo.dataEmprestimo)

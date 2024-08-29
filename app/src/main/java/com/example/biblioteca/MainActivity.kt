@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.biblioteca.view.AcessarBibliotecaActivity
+import com.example.biblioteca.view.AcessarUsuarioActivity
 import com.example.biblioteca.view.AddLivroActivity
 import com.example.biblioteca.view.AddUsuarioActivity
 import com.example.biblioteca.view.EditarLivroActivity
@@ -71,7 +72,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonAcessarUsuario.setOnClickListener {
-            // Código mudar de tela
+            val intent = Intent(this, AcessarUsuarioActivity::class.java)
+            startActivity(intent)
         }
 
         buttonEmprestar.setOnClickListener {
