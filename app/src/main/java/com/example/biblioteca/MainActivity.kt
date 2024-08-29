@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.biblioteca.view.AcessarBibliotecaActivity
 import com.example.biblioteca.view.AddLivroActivity
+import com.example.biblioteca.view.AddUsuarioActivity
 import com.example.biblioteca.view.EditarLivroActivity
 import com.example.biblioteca.view.RemoverLivroActivity
 
@@ -57,7 +58,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonAdicionarUsuario.setOnClickListener {
-            // Código mudar de tela
+            val intent = Intent(this, AddUsuarioActivity::class.java)
+            startActivity(intent)
         }
 
         buttonRemoverUsuario.setOnClickListener {
