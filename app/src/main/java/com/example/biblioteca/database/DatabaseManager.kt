@@ -38,6 +38,10 @@ class DatabaseManager(context: Context) {
         db.insert("usuarios", null, values)
     }
 
+    fun removerUsuario(usuario: Usuario) {
+        db.delete("usuarios", "id = ?", arrayOf(usuario.id.toString()))
+    }
+
     fun getAllUsuarios(): List<Usuario> {
         val usuarios = mutableListOf<Usuario>()
         val cursor = db.query("usuarios", null, null, null, null, null, null)

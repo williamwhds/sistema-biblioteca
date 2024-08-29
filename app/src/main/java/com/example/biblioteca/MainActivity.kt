@@ -13,6 +13,7 @@ import com.example.biblioteca.view.AddLivroActivity
 import com.example.biblioteca.view.AddUsuarioActivity
 import com.example.biblioteca.view.EditarLivroActivity
 import com.example.biblioteca.view.RemoverLivroActivity
+import com.example.biblioteca.view.RemoverUsuarioActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +65,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonRemoverUsuario.setOnClickListener {
-            // Código mudar de tela
+            val intent = Intent(this, RemoverUsuarioActivity::class.java)
+            startActivity(intent)
         }
 
         buttonEditarUsuario.setOnClickListener {
