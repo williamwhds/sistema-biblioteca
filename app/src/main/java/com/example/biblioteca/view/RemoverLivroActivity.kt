@@ -1,40 +1,13 @@
 package com.example.biblioteca.view
 
 import android.os.Bundle
-import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.biblioteca.R
 import com.example.biblioteca.database.DatabaseManager
 import com.example.biblioteca.model.Livro
 
-class RemoverLivroActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_remover_livro)
-
-        val mainView = findViewById<View>(R.id.main)
-        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        val recyclerViewLivros: RecyclerView = findViewById(R.id.recyclerViewLivros)
-        recyclerViewLivros.layoutManager = LinearLayoutManager(this)
-
-        val db = DatabaseManager(this)
-        val livros = db.getAllLivros()
-        val adapter = LivroAdapter(livros) { livro ->
-            showRemoveDialog(livro)
-        }
-        recyclerViewLivros.adapter = adapter
+class RemoverLivroActivity : BaseBibliotecaActivity() {
+    override fun onLivroClick(livro: Livro) {
+        showRemoveDialog(livro)
     }
 
     private fun showRemoveDialog(livro: Livro) {

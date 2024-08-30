@@ -1,4 +1,3 @@
-// app/src/main/java/com/example/biblioteca/EditarLivroActivity.kt
 package com.example.biblioteca.view
 
 import android.app.Activity
@@ -23,32 +22,13 @@ import com.example.biblioteca.database.DatabaseManager
 import com.example.biblioteca.model.Livro
 import java.io.ByteArrayOutputStream
 
-class EditarLivroActivity : AppCompatActivity() {
+class EditarLivroActivity : BaseBibliotecaActivity() {
     private val REQUEST_IMAGE_SELECT = 1
     private var selectedImage: Bitmap? = null
     private var imageViewCapa: ImageView? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_editar_livro)
-
-        val mainView = findViewById<View>(R.id.main)
-        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        val recyclerViewLivros: RecyclerView = findViewById(R.id.recyclerViewLivros)
-        recyclerViewLivros.layoutManager = LinearLayoutManager(this)
-
-        val db = DatabaseManager(this)
-        val livros = db.getAllLivros()
-        val adapter = LivroAdapter(livros) { livro ->
-            showEditDialog(livro)
-        }
-        recyclerViewLivros.adapter = adapter
+    override fun onLivroClick(livro: Livro) {
+        showEditDialog(livro)
     }
 
     private fun showEditDialog(livro: Livro) {
