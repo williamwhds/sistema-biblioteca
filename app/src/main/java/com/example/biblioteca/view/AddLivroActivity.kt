@@ -59,6 +59,12 @@ class AddLivroActivity : AppCompatActivity() {
 
         buttonSalvar.setOnClickListener {
             // Todas são obrigatórias, exceto a imagem da capa
+            if (editTextTitulo.text.isEmpty() || editTextAutor.text.isEmpty() || editTextISBN.text.isEmpty() ||
+                editTextAno.text.isEmpty() || editTextEditora.text.isEmpty() || editTextEdicao.text.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos obrigatórios!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val titulo = editTextTitulo.text.toString()
             val autor = editTextAutor.text.toString()
             val isbn = editTextISBN.text.toString()
