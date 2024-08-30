@@ -2,6 +2,7 @@
 package com.example.biblioteca.view
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +27,10 @@ abstract class BaseBibliotecaActivity : AppCompatActivity() {
         val padding = calculatePadding(spanCount)
         recyclerViewLivros.layoutManager = GridLayoutManager(this, spanCount)
         recyclerViewLivros.adapter = adapter
+
+        if (livros.isEmpty()) {
+            Toast.makeText(this, "Nenhum livro cadastrado", Toast.LENGTH_SHORT).show()
+        }
     }
 
     abstract fun onLivroClick(livro: Livro)
