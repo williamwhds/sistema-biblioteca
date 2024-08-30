@@ -1,0 +1,91 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.AddLivroActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/editTextTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Título"
+                android:layout_margin="16dp" />
+
+            <EditText
+                android:id="@+id/editTextAutor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Autor"
+                android:layout_margin="16dp" />
+
+            <EditText
+                android:id="@+id/editTextEditora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Editora"
+                android:layout_margin="16dp" />
+
+            <EditText
+                android:id="@+id/editTextAno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ano de Publicação (Apenas números)"
+                android:layout_margin="16dp"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/editTextISBN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ISBN"
+                android:layout_margin="16dp" />
+
+            <EditText
+                android:id="@+id/editTextEdicao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Edição (Apenas números)"
+                android:layout_margin="16dp"
+                android:inputType="number" />
+
+            <ImageView
+                android:id="@+id/imageViewCapa"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:background="#E6E0E0"
+                android:contentDescription="Capa do Livro"
+                android:scaleType="centerCrop" />
+
+            <Button
+                android:id="@+id/buttonSelecionarImagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selecionar Imagem"
+                android:layout_margin="16dp" />
+
+            <Button
+                android:id="@+id/buttonSalvar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Salvar"
+                android:layout_margin="16dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
