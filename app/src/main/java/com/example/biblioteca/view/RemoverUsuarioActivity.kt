@@ -1,7 +1,6 @@
 package com.example.biblioteca.view
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.R
 import com.example.biblioteca.database.DatabaseManager
-import com.example.biblioteca.model.Livro
 import com.example.biblioteca.model.Usuario
+import com.example.biblioteca.view.adapter.UsuarioAdapter
 
 class RemoverUsuarioActivity : AppCompatActivity() {
     private var selectedUsuario: Usuario? = null

@@ -1,5 +1,4 @@
-// com/example/biblioteca/view/UsuarioAdapter.kt
-package com.example.biblioteca.view
+package com.example.biblioteca.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.R
 import com.example.biblioteca.model.Usuario
-import com.example.biblioteca.view.adapter.UsuarioAdapter
 
 class UsuarioAdapter(
-    private val usuarios: List<Usuario>,
+    private var usuarios: List<Usuario>,
     private val onItemClick: (Usuario) -> Unit
 ) : RecyclerView.Adapter<UsuarioAdapter.UsuarioViewHolder>() {
 
@@ -22,12 +20,12 @@ class UsuarioAdapter(
         val textViewEnderecoUsuario: TextView = itemView.findViewById(R.id.textViewEnderecoUsuario)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioAdapter.UsuarioViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_usuario, parent, false)
-        return UsuarioAdapter.UsuarioViewHolder(itemView)
+        return UsuarioViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: UsuarioAdapter.UsuarioViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UsuarioViewHolder, position: Int) {
         val usuario = usuarios[position]
         holder.textViewNomeUsuario.text = usuario.nome
         holder.textViewEmailUsuario.text = usuario.email
@@ -40,4 +38,9 @@ class UsuarioAdapter(
     }
 
     override fun getItemCount() = usuarios.size
+
+    fun updateUsuarios(newUsuarios: List<Usuario>) {
+        usuarios = newUsuarios
+        notifyDataSetChanged()
+    }
 }

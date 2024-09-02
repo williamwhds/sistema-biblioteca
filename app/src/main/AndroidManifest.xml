@@ -35,6 +35,12 @@
             android:name=".view.AcessarBibliotecaActivity"
             android:exported="false" />
         <activity
+            android:name=".view.DetalhesLivroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.DetalhesUsuarioActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.R
 import com.example.biblioteca.database.DatabaseManager
-import com.example.biblioteca.model.Usuario
+import com.example.biblioteca.view.adapter.UsuarioAdapter
 
 class AcessarUsuarioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

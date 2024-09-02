@@ -11,6 +11,12 @@ import com.example.biblioteca.model.Livro
 import com.example.biblioteca.model.Usuario
 import java.io.ByteArrayOutputStream
 
+// A FAZER:
+// Comprimir a imagem ao salvar. Acho que quando uma imagem grande é inserida,
+// a aplicação retorna um erro e não abre mais até que os dados sejam limpos.
+//
+//
+
 class DatabaseManager(context: Context) {
     private val dbHelper = DatabaseHelper(context)
     private val db: SQLiteDatabase = dbHelper.writableDatabase
@@ -141,5 +147,33 @@ class DatabaseManager(context: Context) {
             put("imagemCapa", livro.imagemCapa)
         }
         db.update("livros", values, "id = ?", arrayOf(livro.id.toString()))
+    }
+
+    fun getLivro(id: Int) : Livro {
+        val cursor = db.query("livros", null, "id = ?", arrayOf(id.toString()), null, null, null)
+        cursor.moveToFirst()
+        val titulo = cursor.getString(cursor.getColumnIndex("titulo"))
+        val autor = cursor.getString(cursor.getColumnIndex("autor"))
+        val isbn = cursor.getString(cursor.getColumnIndex("isbn"))
+        val ano = cursor.getInt(cursor.getColumnIndex("ano"))
+        val editora = cursor.getString(cursor.getColumnIndex("editora"))
+        val edicao = cursor.getInt(cursor.getColumnIndex("edicao"))
+        val imagemCapa = cursor.getBlob(cursor.getColumnIndex("imagemCapa"))
+        val livro = Livro(id, titulo, autor, isbn, ano, editora, edicao)
+        livro.imagemCapa = imagemCapa
+        cursor.close()
+        return livro
+    }
+
+    fun getUsuario(usuarioId: Int): Usuario {
+        val cursor = db.query("usuarios", null, "id = ?", arrayOf(usuarioId.toString()), null, null, null)
+        cursor.moveToFirst()
+        val nome = cursor.getString(cursor.getColumnIndex("nome"))
+        val email = cursor.getString(cursor.getColumnIndex("email"))
+        val telefone = cursor.getString(cursor.getColumnIndex("telefone"))
+        val endereco = cursor.getString(cursor.getColumnIndex("endereco"))
+        val usuario = Usuario(usuarioId, nome, email, telefone, endereco)
+        cursor.close()
+        return usuario
     }
 }

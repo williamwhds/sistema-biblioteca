@@ -4,19 +4,11 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.R
 import com.example.biblioteca.database.DatabaseManager
 import com.example.biblioteca.model.Livro
@@ -32,7 +24,7 @@ class EditarLivroActivity : BaseBibliotecaActivity() {
     }
 
     private fun showEditDialog(livro: Livro) {
-        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_edit_livro, null)
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_form_livro, null)
         imageViewCapa = dialogView.findViewById(R.id.imageViewCapa)
         val buttonSelectImage = dialogView.findViewById<Button>(R.id.buttonSelectImage)
         val editTextTitulo = dialogView.findViewById<EditText>(R.id.editTextTitulo)

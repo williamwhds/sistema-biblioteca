@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_books"
+        android:icon="@drawable/ic_books"
+        android:title="Biblioteca" />
+    <item
+        android:id="@+id/nav_users"
+        android:icon="@drawable/ic_users"
+        android:title="Usuários" />
+    <item
+        android:id="@+id/nav_loans"
+        android:icon="@drawable/ic_loans"
+        android:title="Empréstimos" />
+    <item
+        android:id="@+id/nav_config"
+        android:icon="@drawable/ic_config"
+        android:title="Configurações" />
+</menu>

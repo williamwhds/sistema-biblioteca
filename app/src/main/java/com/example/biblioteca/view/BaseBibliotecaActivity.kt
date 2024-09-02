@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.R
 import com.example.biblioteca.database.DatabaseManager
 import com.example.biblioteca.model.Livro
+import com.example.biblioteca.view.adapter.LivroAdapter
 
 abstract class BaseBibliotecaActivity : AppCompatActivity() {
 

@@ -1,5 +1,4 @@
-// app/src/main/java/com/example/biblioteca/LivroAdapter.kt (modificado)
-package com.example.biblioteca.view
+package com.example.biblioteca.view.adapter
 
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
@@ -12,14 +11,14 @@ import com.example.biblioteca.R
 import com.example.biblioteca.model.Livro
 
 class LivroAdapter(
-    private val livros: List<Livro>,
+    private var livros: List<Livro>,
     private val onItemClick: (Livro) -> Unit
 ) : RecyclerView.Adapter<LivroAdapter.LivroViewHolder>() {
 
     class LivroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageViewCapa: ImageView = itemView.findViewById(R.id.imageViewCapa)
-        val textViewNomeLivro: TextView = itemView.findViewById(R.id.textViewNomeLivro)
+        val textViewTituloLivro: TextView = itemView.findViewById(R.id.textViewNomeLivro)
         val textViewAutorLivro: TextView = itemView.findViewById(R.id.textViewAutorLivro)
+        val imageViewCapaLivro: ImageView = itemView.findViewById(R.id.imageViewCapa)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LivroViewHolder {
@@ -29,12 +28,12 @@ class LivroAdapter(
 
     override fun onBindViewHolder(holder: LivroViewHolder, position: Int) {
         val livro = livros[position]
-        holder.textViewNomeLivro.text = livro.titulo
+        holder.textViewTituloLivro.text = livro.titulo
         holder.textViewAutorLivro.text = livro.autor
 
         livro.imagemCapa?.let {
             val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
-            holder.imageViewCapa.setImageBitmap(bitmap)
+            holder.imageViewCapaLivro.setImageBitmap(bitmap)
         }
 
         holder.itemView.setOnClickListener {
@@ -43,4 +42,9 @@ class LivroAdapter(
     }
 
     override fun getItemCount() = livros.size
+
+    fun updateLivros(newLivros: List<Livro>) {
+        livros = newLivros
+        notifyDataSetChanged()
+    }
 }

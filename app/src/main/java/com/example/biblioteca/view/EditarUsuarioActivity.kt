@@ -3,7 +3,6 @@ package com.example.biblioteca.view
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -15,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.R
 import com.example.biblioteca.database.DatabaseManager
 import com.example.biblioteca.model.Usuario
+import com.example.biblioteca.view.adapter.UsuarioAdapter
 
 class EditarUsuarioActivity : AppCompatActivity() {
     private var selectedUsuario: Usuario? = null
@@ -43,7 +43,7 @@ class EditarUsuarioActivity : AppCompatActivity() {
     }
 
     private fun showEditDialog(usuario: Usuario) {
-        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_edit_usuario, null)
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_form_usuario, null)
         val editTextNome = dialogView.findViewById<EditText>(R.id.editTextNome)
         val editTextEmail = dialogView.findViewById<EditText>(R.id.editTextEmail)
         val editTextTelefone = dialogView.findViewById<EditText>(R.id.editTextTelefone)
