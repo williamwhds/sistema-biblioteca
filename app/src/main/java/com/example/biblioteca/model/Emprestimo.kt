@@ -7,11 +7,9 @@ class Emprestimo(
     var id: Int? = null,
     var dataEmprestimo: String,
     var dataDevolucao: String,
-    usuario: Usuario,
-    livro: Livro
+    var usuario: Usuario,
+    var livro: Livro
 ) {
-    var dataDevolucaoEfetiva: String = ""
+    var dataDevolucaoEfetiva: String? = null
     var devolvido: Boolean = false
-    var usuario: Usuario? = usuario
-    var livro: Livro? = livro
 }

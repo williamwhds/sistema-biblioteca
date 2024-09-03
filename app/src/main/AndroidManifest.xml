@@ -20,6 +20,9 @@
             android:name=".view.DetalhesUsuarioActivity"
             android:exported="false" />
         <activity
+            android:name=".view.DetalhesEmprestimoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

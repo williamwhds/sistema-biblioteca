@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Biblioteca</string>
     <string name="capa_livro">Capa do Livro</string>
+    <string name="devolver">Devolver</string>
 </resources>

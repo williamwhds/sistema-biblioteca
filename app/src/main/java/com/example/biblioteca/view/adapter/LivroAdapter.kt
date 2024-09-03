@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.R
+import com.example.biblioteca.database.DatabaseManager
 import com.example.biblioteca.model.Livro
 
 class LivroAdapter(
@@ -18,6 +19,7 @@ class LivroAdapter(
     class LivroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewTituloLivro: TextView = itemView.findViewById(R.id.textViewNomeLivro)
         val textViewAutorLivro: TextView = itemView.findViewById(R.id.textViewAutorLivro)
+        val textViewEmprestadoPara: TextView = itemView.findViewById(R.id.textViewEmprestadoPara)
         val imageViewCapaLivro: ImageView = itemView.findViewById(R.id.imageViewCapa)
     }
 
@@ -30,6 +32,16 @@ class LivroAdapter(
         val livro = livros[position]
         holder.textViewTituloLivro.text = livro.titulo
         holder.textViewAutorLivro.text = livro.autor
+
+        // Verificar no banco de dados se o livro está emprestado
+        val dbManager = DatabaseManager(holder.itemView.context)
+        val emprestimo = livro.id?.let { dbManager.getEmprestimoByLivroId(it) }
+
+        if (emprestimo != null) {
+            holder.textViewEmprestadoPara.text = "Emprestado para: ${emprestimo.usuario.nome}"
+        } else {
+            holder.textViewEmprestadoPara.text = "Disponível para empréstimo"
+        }
 
         livro.imagemCapa?.let {
             val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
