@@ -61,10 +61,17 @@ class DetalhesLivroActivity : AppCompatActivity() {
         textViewEdicao.text = livro.edicao.toString()
 
         buttonRemover.setOnClickListener {
-            db.removerLivro(livro)
-            val resultIntent = Intent().putExtra("LIVRO_REMOVIDO", true)
-            setResult(Activity.RESULT_OK, resultIntent)
-            finish()
+            AlertDialog.Builder(this)
+                .setTitle("Confirmar Remoção")
+                .setMessage("Você realmente quer remover este livro? Todos os empréstimos relacionados a este livro também serão removidos.")
+                .setPositiveButton("Sim") { _, _ ->
+                    db.removerLivro(livro)
+                    val resultIntent = Intent().putExtra("LIVRO_REMOVIDO", true)
+                    setResult(Activity.RESULT_OK, resultIntent)
+                    finish()
+                }
+                .setNegativeButton("Não", null)
+                .show()
         }
 
         buttonEditar.setOnClickListener {

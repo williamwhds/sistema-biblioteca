@@ -53,6 +53,9 @@ class DatabaseManager(context: Context) {
     }
 
     fun removerUsuario(usuario: Usuario) {
+        // Remover empréstimos associados ao usuário
+        db.delete("emprestimos", "usuarioId = ?", arrayOf(usuario.id.toString()))
+        // Remover o usuário
         db.delete("usuarios", "id = ?", arrayOf(usuario.id.toString()))
     }
 
@@ -141,6 +144,9 @@ class DatabaseManager(context: Context) {
     }
 
     fun removerLivro(livro: Livro) {
+        // Remover empréstimos associados ao livro
+        db.delete("emprestimos", "livroId = ?", arrayOf(livro.id.toString()))
+        // Remover o livro
         db.delete("livros", "id = ?", arrayOf(livro.id.toString()))
     }
 

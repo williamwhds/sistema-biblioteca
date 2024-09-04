@@ -46,10 +46,17 @@ class DetalhesUsuarioActivity : AppCompatActivity() {
         textViewEndereco.text = usuario.endereco
 
         buttonRemover.setOnClickListener {
-            db.removerUsuario(usuario)
-            val resultIntent = Intent().putExtra("USUARIO_REMOVIDO", true)
-            setResult(Activity.RESULT_OK, resultIntent)
-            finish()
+            AlertDialog.Builder(this)
+                .setTitle("Confirmar Remoção")
+                .setMessage("Você realmente quer remover este usuário? Todos os empréstimos relacionados a este usuário também serão removidos.")
+                .setPositiveButton("Sim") { _, _ ->
+                    db.removerUsuario(usuario)
+                    val resultIntent = Intent().putExtra("USUARIO_REMOVIDO", true)
+                    setResult(Activity.RESULT_OK, resultIntent)
+                    finish()
+                }
+                .setNegativeButton("Não", null)
+                .show()
         }
 
         buttonEditar.setOnClickListener {
